@@ -1,10 +1,24 @@
-## Put comments here that give an overall description of what your
-## functions do
+## This code is part of an assignment for the R Programming
+## Coursera course in the Data Scientist Toolbox series
 
-## Write a short comment describing this function
+## The makeCacheMatrix function creates a special matrix that caches its 
+## inversion.  It uses the <<- operator to assign a variable
+## containing the inverse matrix so that it is visible in the parent 
+## function.
 
 makeCacheMatrix <- function(x = matrix()) {
-
+        m <- NULL
+        set <- function(y) {
+                x <<- y
+                m <<- NULL
+        }
+        get <- function() x
+        setmean <- function(mean) m <<- mean
+        getmean <- function() m
+        list(set = set, get = get,
+             setmean = setmean,
+             getmean = getmean)
+        
 }
 
 
